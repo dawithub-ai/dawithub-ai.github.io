@@ -3,252 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dawit Habtamu | Data & Automation Executive Portfolio</title>
-    <!-- GITHUB-PAGES SAFE CSS STYLING -->
+    <title>Dawit Habtamu | Data & Automation Portfolio</title>
     <style>
-        /* COLOR PALETTE: PREMIUM BLACK & GOLD */
         :root {
-            --bg-deep: #050505; /* Deep Black Background */
-            --bg-card: #141414; /* Accent Black for Cards */
-            --gold-primary: #D4AF37; /* Metallic Gold Accent */
-            --text-main: #EAEAEA; /* Off-White Text */
-            --text-muted: #A0A0A0; /* Muted Grey Subtext */
-            --font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
-            --font-display: 'Montserrat', sans-serif;
+            --bg-deep: #080808;
+            --bg-card: #121212;
+            --gold-primary: #00eeff; /* Glow Accent */
+            --gold-accent: #D4AF37;
+            --text-main: #FFFFFF;
+            --text-muted: #A0A0A0;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* RESET & BASE STYLES */
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: var(--font-family); scroll-behavior: smooth; }
-        body { background-color: var(--bg-deep); color: var(--text-main); line-height: 1.8; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        body { background-color: var(--bg-deep); color: var(--text-main); line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-        /* MULTI-PAGE VIEW SIMULATION (Grid for Desktop) */
-        .layout-wrapper {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-        }
-        @media (max-width: 900px) {
-            .layout-wrapper { grid-template-columns: 1fr; gap: 60px; }
-        }
-
-        /* GLOBAL TITLES */
-        h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing: -1px; text-transform: uppercase; }
-        h1 { font-size: 3rem; color: #FFF; margin-bottom: 8px; }
-        h2 { font-size: 2.2rem; color: #FFF; margin-bottom: 25px; position: relative; display: inline-block; padding-bottom: 5px; }
-        h2::after { content: ''; position: absolute; left: 0; bottom: 0; width: 60px; height: 3px; background: var(--gold-primary); }
-        h3 { font-size: 1.4rem; color: #FFF; margin-bottom: 12px; font-weight: 500; text-transform: none; }
-        .title-accent { color: var(--gold-primary); }
+        /* NAVBAR */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 25px 0; border-bottom: 1px solid #1a1a1a; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: #FFF; text-decoration: none; }
+        .logo span { color: var(--gold-accent); }
+        .nav-links { display: flex; gap: 25px; list-style: none; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; transition: 0.3s; font-size: 0.95rem; }
+        .nav-links a:hover { color: var(--gold-accent); }
 
         /* BUTTONS */
-        .btn { 
-            display: inline-block; 
-            background: transparent; 
-            border: 2px solid var(--gold-primary);
-            color: var(--gold-primary); 
-            padding: 14px 30px; 
-            border-radius: 4px; 
-            text-decoration: none; 
-            font-weight: 600; 
-            text-transform: uppercase; 
-            letter-spacing: 2px;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .btn:hover { background: var(--gold-primary); color: var(--bg-deep); }
+        .btn { display: inline-block; background: var(--gold-accent); color: #000; padding: 12px 28px; border-radius: 25px; text-decoration: none; font-weight: 700; transition: 0.3s; border: 2px solid var(--gold-accent); }
+        .btn:hover { background: transparent; color: var(--gold-accent); }
 
-        /* ============================
-           SECTION 1: HERO & ABOUT
-           ============================ */
-        #hero { text-align: left; padding: 100px 0 60px; display: flex; flex-direction: column; align-items: flex-start; position: relative; }
-        .intro-text { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 10px; }
-        .subtitle { font-size: 1.3rem; color: var(--gold-primary); font-weight: 300; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 30px; }
-        #hero p.description { color: var(--text-muted); max-width: 650px; margin-bottom: 40px; }
+        /* HERO SECTION */
+        .hero { display: flex; align-items: center; justify-content: space-between; padding: 80px 0; gap: 40px; flex-wrap: wrap; }
+        .hero-text { flex: 1; min-width: 300px; }
+        .hero-text h3 { font-size: 1.2rem; color: var(--text-muted); }
+        .hero-text h1 { font-size: 3rem; margin: 10px 0; color: #FFF; }
+        .hero-text h2 { font-size: 1.5rem; color: var(--gold-accent); margin-bottom: 20px; }
+        .hero-text p { color: var(--text-muted); margin-bottom: 30px; max-width: 500px; }
         
-        /* IMAGE BLOCK (Mock of the hex border in the picture) */
-        .mock-image-container {
-            width: 100%;
-            display: flex;
-            justify-content: flex-end;
-            margin-top: -200px;
-            position: absolute;
-            right: -60px;
-            top: 100px;
-        }
-        .mock-image-container img {
-            width: 350px;
-            height: auto;
-            border: 1px solid var(--gold-primary);
-            padding: 5px;
-            border-radius: 8px; /* Slightly rounded for the border mockup */
-            /* In a real project, we use CSS clip-path or masks for the hexagon shape. For this simple HTML edit, a border works well. */
-        }
-        @media (max-width: 1100px) {
-            .mock-image-container { position: static; margin-top: 40px; right: 0; justify-content: center; width: 100%; }
-        }
+        .hero-img-box { position: relative; width: 300px; height: 340px; border-radius: 20px; border: 2px solid var(--gold-accent); display: flex; align-items: center; justify-content: center; background: var(--bg-card); box-shadow: 0 0 25px rgba(212, 175, 55, 0.2); }
+        .hero-img-box img { width: 100%; height: 100%; object-fit: cover; border-radius: 18px; }
 
-        #about { text-align: center; }
-        #about h2::after { margin-left: auto; margin-right: auto; }
-        #about p.description { color: var(--text-muted); max-width: 750px; margin: 0 auto 40px; }
+        /* SECTION TITLES */
+        .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 50px; color: #FFF; }
+        .section-title span { color: var(--gold-accent); }
 
-        /* ============================
-           SECTION 2: SERVICES & WORK
-           ============================ */
-        #services { text-align: center; margin-bottom: 80px; }
-        #services h2::after { left: 50%; transform: translateX(-50%); }
-        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        @media (max-width: 1000px) {
-            .services-grid { grid-template-columns: 1fr; }
-        }
-        .service-card { background: var(--bg-card); padding: 30px; border-radius: 8px; border: 1px solid #222; transition: all 0.3s ease; text-align: center; display: flex; flex-direction: column; align-items: center; }
-        .service-card:hover { transform: translateY(-5px); border-color: var(--gold-primary); }
-        .service-icon { color: var(--gold-primary); font-size: 2.5rem; margin-bottom: 20px; }
-        .service-card h3 { font-size: 1.2rem; }
-        .service-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1; }
+        /* SERVICES SECTION */
+        .services { padding: 80px 0; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .service-card { background: var(--bg-card); padding: 35px 25px; border-radius: 15px; border: 1px solid #222; text-align: center; transition: 0.3s; }
+        .service-card:hover { border-color: var(--gold-accent); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .service-card h3 { font-size: 1.3rem; margin: 15px 0; color: #FFF; }
+        .service-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; }
 
-        #projects { text-align: center; }
-        #projects h2::after { left: 50%; transform: translateX(-50%); }
-        .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        @media (max-width: 900px) {
-            .projects-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 600px) {
-            .projects-grid { grid-template-columns: 1fr; }
-        }
-        .project-card { background: var(--bg-card); border-radius: 4px; overflow: hidden; border: 1px solid #222; transition: all 0.3s ease; position: relative; }
-        .project-card:hover { border-color: var(--gold-primary); }
-        .project-image { width: 100%; height: 200px; background-color: #222; background-size: cover; background-position: center; transition: all 0.3s ease; }
-        .project-card:hover .project-image { transform: scale(1.05); }
+        /* PROJECTS SECTION */
+        .projects { padding: 80px 0; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .project-card { background: var(--bg-card); border-radius: 15px; border: 1px solid #222; overflow: hidden; transition: 0.3s; }
+        .project-card:hover { border-color: var(--gold-accent); transform: translateY(-5px); }
+        .project-img { width: 100%; height: 180px; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.9rem; }
+        .project-info { padding: 20px; }
+        .project-info h3 { color: #FFF; margin-bottom: 10px; font-size: 1.1rem; }
+        .project-info p { color: var(--text-muted); font-size: 0.85rem; }
 
-        /* FOOTER & CONTACT */
-        footer { text-align: center; color: var(--text-muted); margin-top: 100px; padding: 60px 0 20px; border-top: 1px solid #222; font-size: 0.9rem; position: relative; width: 100%; display: flex; flex-direction: column; align-items: center; }
-        footer h2::after { left: 50%; transform: translateX(-50%); }
-        .contact-form { background: var(--bg-card); padding: 30px; border-radius: 8px; border: 1px solid #222; width: 100%; max-width: 600px; margin-bottom: 40px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        @media (max-width: 600px) {
-            .contact-form { grid-template-columns: 1fr; }
-        }
-        .contact-form input, .contact-form textarea { background: rgba(255,255,255,0.05); border: 1px solid #333; padding: 12px; border-radius: 4px; color: #FFF; font-size: 0.9rem; width: 100%; }
-        .contact-form input:focus, .contact-form textarea:focus { border-color: var(--gold-primary); outline: none; }
-        .contact-form textarea { grid-column: span 2; height: 150px; resize: none; }
-        @media (max-width: 600px) {
-            .contact-form textarea { grid-column: 1; }
-        }
-        .copyright { color: var(--text-muted); font-size: 0.8rem; letter-spacing: 1px; margin-top: 20px; text-transform: uppercase; }
-        
-        /* ICONS - Using simple text as placeholders for icons. (Real icons need libraries like FontAwesome which are too complex for a single-file edit) */
-        .icon { font-style: normal; font-weight: bold; }
+        /* CONTACT SECTION */
+        .contact { padding: 80px 0; text-align: center; }
+        .contact-form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 15px; background: var(--bg-card); border: 1px solid #222; border-radius: 8px; color: #FFF; outline: none; }
+        .contact-form input:focus, .contact-form textarea:focus { border-color: var(--gold-accent); }
+        .contact-form textarea { height: 120px; resize: none; }
+
+        footer { text-align: center; padding: 30px 0; border-top: 1px solid #1a1a1a; color: var(--text-muted); font-size: 0.85rem; }
     </style>
 </head>
 <body>
+
     <div class="container">
-        
-        <!-- SIDE-BY-SIDE LAYOUT SIMULATION (Reflecting the multi-section display of the original image) -->
-        <div class="layout-wrapper">
-            
-            <!-- LEFT COLUMN (Pages 1 & 3 of the original structure) -->
-            <div class="left-col">
-                
-                <!-- PAGE 1: HERO & ABOUT (Integrated) -->
-                <section id="hero">
-                    <p class="intro-text">Hello, It’s Me</p>
-                    <h1>Dawit Habtamu</h1>
-                    <p class="subtitle">Data & Automation <span class="title-accent">Executive</span></p>
-                    <p class="description">Engineering secure, high-efficiency data pipelines and custom workflow solutions. Specializing in converting operational complexity into streamlined, high-performance systems for global clients.</p>
-                    <a href="#contact" class="btn">Initiate Consultation</a>
+        <!-- NAVIGATION -->
+        <nav>
+            <a href="#" class="logo">Dawit<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
 
-                    <!-- IMAGE PLACEHOLDER (Mock of the hexagonal picture frame from the picture) -->
-                    <div class="mock-image-container">
-                        <!-- INSTRUCTION: To add your real photo, upload it as 'my-photo.jpg' and edit this line to src="my-photo.jpg" -->
-                        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22350%22 height=%22400%22 viewBox=%220 0 350 400%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%23141414%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 font-family=%22Montserrat%22 font-size=%2224%22 text-anchor=%22middle%22 fill=%22%23D4AF37%22%3EPHOTO PENDING%3C/text%3E%3C/svg%3E" alt="Profile Picture">
-                    </div>
-                </section>
-
-                <section id="about">
-                    <h2><span class="title-accent">About</span> Me</h2>
-                    <p class="description">As a dedicated professional, I specialize in leveraging technology to optimize workflows and data integrity. With expertise spanning advanced automation tools, precision web development, and algorithmic trading scripts, I enable businesses to make faster, more accurate decisions through automated systems.</p>
-                    <a href="#projects" class="btn">Explore Deployments</a>
-                </section>
-                
+        <!-- HERO SECTION -->
+        <section class="hero" id="about">
+            <div class="hero-text">
+                <h3>Hello, It's Me</h3>
+                <h1>Dawit Habtamu</h1>
+                <h2>And I'm a <span>Data & Automation Specialist</span></h2>
+                <p>Engineering robust data entry pipelines, high-performance websites, and automated Pine Script trading scripts for TradingView.</p>
+                <a href="#contact" class="btn">Work With Me</a>
             </div>
-            
-            <!-- RIGHT COLUMN (Pages 2 & 4 of the original structure) -->
-            <div class="right-col">
-                
-                <!-- PAGE 2: SERVICES & WORK (Integrated) -->
-                <section id="services">
-                    <h2>Our <span class="title-accent">Services</span></h2>
-                    
-                    <div class="services-grid">
-                        
-                        <!-- SERVICE 1: DATA ENTRY & AUTOMATION -->
-                        <div class="service-card">
-                            <span class="service-icon"><span class="icon">/&lt;&gt; /</span></span> <!-- Custom mock icons -->
-                            <h3>Data <span class="title-accent">Entry</span> & Automation</h3>
-                            <p>Architecting secure data pipelines and serverless aggregation systems (GitHub/Firebase) to eliminate manual entry. Achieve 90% time savings and 100% accuracy.</p>
-                            <a href="#contact" class="btn">Work with Me</a>
-                        </div>
-                        
-                        <!-- SERVICE 2: WEBSITE DEVELOPMENT -->
-                        <div class="service-card">
-                            <span class="service-icon"><span class="icon">&#9998;</span></span> <!-- Custom mock icon -->
-                            <h3>Website <span class="title-accent">Development</span></h3>
-                            <p>Designing high-performance, responsive portfolios and applications (HTML/CSS/JS) that convert visitors into clients, tailored to your professional identity.</p>
-                            <a href="#contact" class="btn">Work with Me</a>
-                        </div>
-                        
-                        <!-- SERVICE 3: PINE SCRIPT CODE -->
-                        <div class="service-card">
-                            <span class="service-icon"><span class="icon">&#128200;</span></span> <!-- Custom mock icon -->
-                            <h3><span class="title-accent">Pine Script</span> Trading Code</h3>
-                            <p>Engineering custom, multi-timeframe indicators and algorithmic trading strategies for TradingView. Automate trend detection and trade setup identification in financial markets.</p>
-                            <a href="#contact" class="btn">Work with Me</a>
-                        </div>
-                        
-                    </div>
-                </section>
-
-                <section id="projects">
-                    <h2>Latest <span class="title-accent">Project</span></h2>
-                    <div class="projects-grid">
-                        
-                        <!-- PROJECT CARDS: Placeholders for now. Replace the background images with your real project screenshots. -->
-                        <div class="project-card">
-                            <!-- INSTRUCTION: Upload screenshots of your work as 'proj-1.jpg', etc., and uncomment the line below. Remove the simple div -->
-                            <!-- <img src="proj-1.jpg" alt="Data Aggregator System" class="project-image"> -->
-                            
-                            <!-- Placeholder View -->
-                            <div class="project-image" style="background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%23222%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 font-family=%22Montserrat%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22%23333%22%3EDeployment Visual%3C/text%3E%3C/svg%3E');"></div>
-                        </div>
-                        <div class="project-card"><div class="project-image" style="background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%23222%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 font-family=%22Montserrat%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22%23333%22%3EDeployment Visual%3C/text%3E%3C/svg%3E');"></div></div>
-                        <div class="project-card"><div class="project-image" style="background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%23222%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 font-family=%22Montserrat%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22%23333%22%3EDeployment Visual%3C/text%3E%3C/svg%3E');"></div></div>
-                        <div class="project-card"><div class="project-image" style="background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%23222%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 font-family=%22Montserrat%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22%23333%22%3EDeployment Visual%3C/text%3E%3C/svg%3E');"></div></div>
-                        <div class="project-card"><div class="project-image" style="background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%23222%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 font-family=%22Montserrat%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22%23333%22%3EDeployment Visual%3C/text%3E%3C/svg%3E');"></div></div>
-                        <div class="project-card"><div class="project-image" style="background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%23222%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 font-family=%22Montserrat%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22%23333%22%3EDeployment Visual%3C/text%3E%3C/svg%3E');"></div></div>
-                        
-                    </div>
-                </section>
-                
+            <div class="hero-img-box">
+                <!-- Replace 'profile.jpg' with your image name when uploaded -->
+                <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='340'%3E%3Crect width='100%25' height='100%25' fill='%22121212'/%3E%3Ctext x='50%25' y='50%25' fill='%23D4AF37' text-anchor='middle' font-family='Arial'%3EYour Photo Here%3C/text%3E%3C/svg%3E" alt="Dawit Habtamu">
             </div>
-            
-        </div>
-        
-        <!-- PAGE 4: CONTACT (Simulated structure as the footer) -->
-        <footer id="contact">
-            <h2>Contact <span class="title-accent">Me!</span></h2>
-            
-            <form class="contact-form" onsubmit="alert('Thank you for initiating consultation. I will connect with you via email.'); return false;">
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section class="services" id="services">
+            <h2 class="section-title">Our <span>Services</span></h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Data Entry & Automation</h3>
+                    <p>Automating data processing pipelines and structured workbook aggregations to save time and eliminate errors.</p>
+                    <a href="#contact" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>Website Development</h3>
+                    <p>Building clean, high-performance, and responsive portfolio websites tailored to showcase your personal brand.</p>
+                    <a href="#contact" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>Pine Script Trading Code</h3>
+                    <p>Creating custom multi-timeframe TradingView indicators and trading strategies for algorithmic financial analysis.</p>
+                    <a href="#contact" class="btn">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section class="projects" id="projects">
+            <h2 class="section-title">Latest <span>Projects</span></h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">Project Preview 1</div>
+                    <div class="project-info">
+                        <h3>Automated Reporting System</h3>
+                        <p>GitHub Pages + Firebase data collection pipeline.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">Project Preview 2</div>
+                    <div class="project-info">
+                        <h3>Pine Script Indicator</h3>
+                        <p>Custom multi-timeframe trend indicator on TradingView.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">Project Preview 3</div>
+                    <div class="project-info">
+                        <h3>Executive Web Portfolio</h3>
+                        <p>Modern black and gold responsive website design.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section class="contact" id="contact">
+            <h2 class="section-title">Contact <span>Me!</span></h2>
+            <form class="contact-form" onsubmit="alert('Message sent successfully!'); return false;">
                 <input type="text" placeholder="Full Name" required>
                 <input type="email" placeholder="Email Address" required>
-                <input type="tel" placeholder="Mobile Number">
                 <input type="text" placeholder="Email Subject">
-                <textarea placeholder="Your Message regarding Data Entry, Web Dev, or Pine Script projects..." required></textarea>
-                <button type="submit" class="btn" style="grid-column: span 2; width: auto; justify-self: center;">Initiate Consultation</button>
+                <textarea placeholder="Your Message..." required></textarea>
+                <button type="submit" class="btn">Send Message</button>
             </form>
-            
-            <p class="copyright">DAWIT HABTAMU &copy; 2026. SECURE EXECUTIVE SOLUTIONS.</p>
-        </footer>
+        </section>
 
+        <footer>
+            <p>&copy; 2026 Dawit Habtamu. All Rights Reserved.</p>
+        </footer>
     </div>
+
 </body>
 </html>
